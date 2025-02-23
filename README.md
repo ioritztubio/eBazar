@@ -13,12 +13,6 @@ Este proyecto es una página web simple para simular una tienda en línea llamad
 - **Responsividad:** Se adapta a dispositivos móviles y de escritorio.
 - **Diseño visual atractivo:** Se utiliza una combinación de colores modernos y un diseño limpio para mejorar la experiencia del usuario.
 
-## Estructura del Proyecto
-
-/eBazar 
-│
-├── index.html # Archivo principal con la estructura HTML 
-├── README.md # Este archivo 
 
 ## Instalación
 
