@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="eu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eBazar - Produktu Ataria</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      header {
+        background-color: #ff0000;
+        color: white;
+        padding: 15px;
+        text-align: center;
+      }
+      nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        background: #cc0000;
+        padding: 10px;
+        justify-content: space-evenly;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        flex: none;
+        text-align: center;
+      }
+      .search-bar {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .search-bar input {
+        padding: 10px;
+        width: 80%;
+        max-width: 600px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .filters-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px 0;
+        padding: 10px;
+        align-items: center;
+      }
+      .filters button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #ffcccc;
+      }
+      .sort-by {
+        margin-left: 20px;
+      }
+      .products-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 15px;
+        padding: 20px;
+        max-width: 90%;
+        margin: auto;
+      }
+      .product {
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        width: 22%;
+        text-align: center;
+      }
+      .product img {
+        width: 225px;
+        height: 225px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .cart {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .cart button {
+        padding: 10px;
+        border: none;
+        background: #ff5500;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      footer {
+        background: #990000;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+      }
+      @media (max-width: 1024px) {
+        .product {
+          width: 45%;
+        }
+      }
+      @media (max-width: 768px) {
+        .product {
+          width: 90%;
+        }
+      }
+      @media (max-width: 320px) {
+        .product {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>eBazar</h1>
+    </header>
+    <nav>
+      <a href="#">Guri buruz</a>
+      <a href="#">Eskaintzak</a>
+      <a href="#">Nire Eskaerak</a>
+      <a href="#">Konfigurazioa</a>
+      <a href="#">Hizkuntza</a>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Produktuak bilatu..." />
+    </div>
+    <div class="filters-container">
+      <div class="filters">
+        <button>Elektronika</button>
+        <button>Arropa</button>
+        <button>Etxea</button>
+        <button>Kirola</button>
+      </div>
+      <div class="sort-by">
+        <label for="sort">Ordenatu:</label>
+        <select id="sort">
+          <option value="price-asc">Prezioa: Beheranzko ordena</option>
+          <option value="price-desc">Prezioa: Goranzko ordena</option>
+          <option value="name-asc">Izena: A-Z</option>
+          <option value="name-desc">Izena: Z-A</option>
+        </select>
+      </div>
+    </div>
+    <div class="products-container">
+      <script>
+        const imageLinks = [
+          "https://m.media-amazon.com/images/I/71aOsTlIjUL._AC_SF226,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/81bNgfZqEwL._AC_SF226,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/71+80-HSgiL._AC_SF226,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/81bNgfZqEwL._A…6,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/71U7geQCU6L._A…6,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/71me4pHCDJL._A…6,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/61sDzMeunmL._A…6,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/71v6RkjYuDL._A…6,226_QL85_.jpg",
+          "https://m.media-amazon.com/images/I/71s-ucqqohL._A…6,226_QL85_.jpg",
+        ];
+        const productNames = [
+          "Smartphone",
+          "Laptop",
+          "Camiseta",
+          "Zapatillas deportivas",
+          "Auriculares",
+          "Reloj inteligente",
+          "Cámara digital",
+          "Tablet",
+          "Televisor",
+          "Altavoz Bluetooth",
+        ];
+
+        for (let i = 1; i <= 20; i++) {
+          document.write(`
+            <div class="product">
+                <img src="${imageLinks[i % imageLinks.length]}" alt="${
+            productNames[i % productNames.length]
+          } ${i}" style="width: 225px; height: 225px; object-fit: cover;">
+                <h3>${productNames[i % productNames.length]}</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <strong>$${(i * 5).toFixed(2)}</strong>
+                <button>Saskira gehitu</button>
+            </div>
+        `);
+        }
+      </script>
+    </div>
+    <footer>
+      <p>&copy; 2025 eBazar. Eskubide guztiak erreserbatuta.</p>
+    </footer>
+  </body>
+</html>
