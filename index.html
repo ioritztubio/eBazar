@@ -4,19 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eBazar - Produktu Ataria</title>
+    <link rel="icon" href="descarga.png" type="image/png" />
+
     <style>
+      /* Estilo general de la página */
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f4f4f4;
+        overflow-y: scroll; /* Asegura que siempre haya un scrollbar si se necesita */
       }
-      header {
-        background-color: #ff0000;
-        color: white;
-        padding: 15px;
-        text-align: center;
+
+      /* Estilo del scrollbar global */
+      ::-webkit-scrollbar {
+        width: 8px; /* Ancho del scrollbar */
       }
+
+      /* Estilo del fondo del scrollbar */
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1); /* Fondo casi transparente */
+        border-radius: 10px;
+      }
+
+      /* Estilo del toggle (thumb) del scrollbar */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3); /* Color del toggle */
+        border-radius: 10px; /* Bordes redondeados */
+        border: 2px solid rgba(0, 0, 0, 0.1); /* Borde suave para el toggle */
+      }
+
+      /* Estilo para el navbar y su scrollbar */
       nav {
         display: flex;
         overflow-x: auto;
@@ -24,6 +42,30 @@
         background: #cc0000;
         padding: 10px;
         justify-content: space-evenly;
+        scrollbar-width: thin; /* Para Firefox */
+        scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1); /* Para Firefox */
+      }
+
+      /* Estilo específico del scrollbar para el nav */
+      nav::-webkit-scrollbar {
+        height: 6px; /* Hacer el scrollbar más fino */
+      }
+
+      nav::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1); /* Fondo casi transparente */
+      }
+
+      nav::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3); /* Color del thumb */
+        border-radius: 5px; /* Bordes redondeados */
+      }
+
+      /* Otros estilos de la página */
+      header {
+        background-color: #ff0000;
+        color: white;
+        padding: 15px;
+        text-align: center;
       }
       nav a {
         color: white;
@@ -80,12 +122,9 @@
         text-align: center;
       }
       .product img {
-        width: 225px;
-        height: 225px;
-        object-fit: cover;
+        max-width: 100%;
         border-radius: 5px;
       }
-
       .cart {
         text-align: center;
         margin: 20px 0;
@@ -105,6 +144,8 @@
         padding: 15px;
         margin-top: 20px;
       }
+
+      /* Media queries para dispositivos móviles */
       @media (max-width: 1024px) {
         .product {
           width: 45%;
@@ -181,16 +222,16 @@
 
         for (let i = 1; i <= 20; i++) {
           document.write(`
-            <div class="product">
-                <img src="${imageLinks[i % imageLinks.length]}" alt="${
+              <div class="product">
+                  <img src="${imageLinks[i % imageLinks.length]}" alt="${
             productNames[i % productNames.length]
           } ${i}" style="width: 225px; height: 225px; object-fit: cover;">
-                <h3>${productNames[i % productNames.length]}</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <strong>$${(i * 5).toFixed(2)}</strong>
-                <button>Saskira gehitu</button>
-            </div>
-        `);
+                  <h3>${productNames[i % productNames.length]}</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <strong>$${(i * 5).toFixed(2)}</strong>
+                  <button>Saskira gehitu</button>
+              </div>
+          `);
         }
       </script>
     </div>
